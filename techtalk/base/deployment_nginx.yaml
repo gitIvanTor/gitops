@@ -18,6 +18,12 @@ spec:
           image: docker.io/nginxinc/nginx-unprivileged:1.29.0
           ports:
             - containerPort: 8080
+              #          readinessProbe:
+              #            httpGet:
+              #              path: /
+              #              port: 8080
+              #            initialDelaySeconds: 3
+              #            periodSeconds: 2
           env:
             - name: POD_NAME
               valueFrom:
@@ -42,6 +48,8 @@ spec:
               mountPath: /config
             - name: webroot
               mountPath: /usr/share/nginx/html
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
           securityContext:
             runAsNonRoot: true
             allowPrivilegeEscalation: false
@@ -53,4 +61,6 @@ spec:
             name: nginx-content
         - name: webroot
           emptyDir: {}
-
+        - name: nginx-config
+          configMap:
+            name: nginx-config
