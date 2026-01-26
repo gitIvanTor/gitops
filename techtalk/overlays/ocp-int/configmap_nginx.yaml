@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-content
+  name: nginx-config
   namespace: techtalk
 data:
   index.html.template: |
