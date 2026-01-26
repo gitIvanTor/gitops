@@ -58,7 +58,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: nginx-content
+            name: nginx-config
         - name: webroot
           emptyDir: {}
         - name: nginx-config
