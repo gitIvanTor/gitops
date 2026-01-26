@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: docker.io/nginxinc/nginx-unprivileged:latest
+          image: quay.apps.ocp-mgt.zrh.local/admin/nginx:latest
